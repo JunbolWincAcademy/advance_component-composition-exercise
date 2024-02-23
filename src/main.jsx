@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { default as Library } from "./Library";
+import { Library } from "./library";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
