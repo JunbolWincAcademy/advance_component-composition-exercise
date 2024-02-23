@@ -1,4 +1,4 @@
-import { Book } from './book'; // there is an issue here in './book'
+import { Book } from './book'; // there is an issue here in './book' \i resolved it by changing its name and renaming back again how it was
 
 export const Category = ({ title, selectedBooks, borrowBook, returnBook }) => {
   return (
