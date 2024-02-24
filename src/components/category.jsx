@@ -1,14 +1,15 @@
-import { Book } from './book'; // there is an issue here in './book' \i resolved it by changing its name and renaming back again how it was
 
-export const Category = ({ title, selectedBooks, borrowBook, returnBook }) => {
+export const Category = ({ title, amount, children }) => {
   return (
     <>
-      <h3>
-        {title} ({selectedBooks.length}):
-      </h3>
-      {selectedBooks.map((book) => (
-        <Book key={book.id} book={book} borrowBook={borrowBook} returnBook={returnBook} />
-      ))}
+      <h3>Category: {title}</h3>
+      <h3>Books found: {amount}</h3>
+      {children}
     </>
   );
 };
+
+//------saved code
+/* {selectedBooks.map((book) => (
+  <Book key={book.id} book={book} borrowBook={borrowBook} returnBook={returnBook} />
+))} */

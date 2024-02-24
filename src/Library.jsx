@@ -1,12 +1,14 @@
 import { collection } from './collection';
 import { useState } from 'react';
 import { Books } from './components/books';
+import { Book } from './components/book';
+import { Category } from './components/category';
 
 import { Center, Flex, List, Heading, Text } from '@chakra-ui/react';
 
 export const Library = () => {
   const [books, setBooks] = useState(collection.books); // Initialize useState with current state of the array
-
+  const programmingBooks = books.filter((bookItem) => bookItem.category === 'programming'); //❗ t was important to bring this one here from books.jsx
   const borrowBook = (id) => {
     // Borrow the book with that id
 
@@ -53,7 +55,13 @@ export const Library = () => {
       <div className="App">
         <h1>My Library</h1>
       </div>
-      <Books books={books} borrowBook={borrowBook} returnBook={returnBook} />
+      <Books amount={books.length}>
+        <Category title="Programming" amount={programmingBooks.length}>
+          {programmingBooks.map((book) => (
+            <Book key={book.id} book={book} borrowBook={borrowBook} returnBook={returnBook} />
+          ))}
+        </Category>
+      </Books>
     </>
   );
 };
